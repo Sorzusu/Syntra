@@ -1,60 +1,54 @@
-
-
----
-
-````markdown
 # Syntra
 
-Syntra is a compact neural network framework that supports activation function selection, model saving/loading, early stopping, and CSV-based training. No bloated libraries, just C++ and ~Love~.
+Syntra is a lightweight neural network framework built in C++ with support for model saving, training from CSV datasets, multiple activation functions, and early stopping.
+
+## Features
+
+- Feedforward neural networks
+- Activation functions: Sigmoid, ReLU, Tanh
+- Model saving/loading to `.txt`
+- CSV-based dataset input (optional)
+- Training logs to file
+- Early stopping
 
 ## Build
 
 ```bash
-g++ -std=c++17 -O2 -o syntra syntra.cpp
-````
+g++ -std=c++17 -O2 -o syntra main.cpp
+```
 
 ## Usage
 
 ```bash
-./syntra [flags] [optional path to CSV]
+./syntra [csv_file.csv] [flags]
 ```
 
-### Example (no CSV):
+### Flags
+
+| Flag           | Description                     |
+|----------------|---------------------------------|
+| `--epochs`     | Training epochs (default: 1000) |
+| `--lr`         | Learning rate (default: 0.1)    |
+| `--batch`      | Batch size (default: 4)         |
+| `--activation` | `sigmoid`, `relu`, or `tanh`    |
+| `--earlystop`  | Patience in epochs (default: 20)|
+| `--save`       | Output model file               |
+| `--log`        | Output log file                 |
+
+### Example
 
 ```bash
-./syntra --epochs 1500 --lr 0.05 --batch 2 --activation tanh --earlystop 50 --save mymodel.txt --log mylog.txt
+./syntra --epochs 1500 --lr 0.05 --batch 2 --activation tanh --earlystop 50 --save model.txt --log out.log
 ```
 
-### Example (with CSV):
+### Example with CSV
 
 ```bash
-./syntra dataset.csv --epochs 500 --activation relu --log output.log
+./syntra dataset.csv --epochs 500 --lr 0.01 --activation relu
 ```
 
-CSV rows should be in the format:
+> Each CSV row should contain input values followed by output labels.
 
-```
-[input1,input2,...,output]
-```
+---
 
-## Flags
-
-| Flag           | Description                                              |
-| -------------- | -------------------------------------------------------- |
-| `--epochs`     | Number of training epochs (default: `1000`)              |
-| `--lr`         | Learning rate (default: `0.1`)                           |
-| `--batch`      | Mini-batch size (default: `4`)                           |
-| `--activation` | Activation function: `sigmoid`, `relu`, `tanh`           |
-| `--earlystop`  | Early stopping patience (default: `20`)                  |
-| `--save`       | File to save trained model (default: `model.txt`)        |
-| `--log`        | File to write training log (default: `training_log.txt`) |
-
-## Outputs
-
-* `model.txt` contains layer config and weights
-* Log file shows training and validation loss per epoch
-
-## Name?
-
-Syntra = synapse infra. Sounds cool. Deal with it.
-
+Licensed under the BSD 3-Clause License.
