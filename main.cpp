@@ -1,12 +1,3 @@
-// Refined version of the original full-feature neural network code
-// Features retained & extended:
-// - Activation functions (Sigmoid, ReLU, Tanh)
-// - Model saving/loading
-// - Logging training and validation loss to file
-// - Early stopping
-// - CSV input for training/validation
-// - Command-line flags for configuration
-
 #include <iostream>
 #include <vector>
 #include <cmath>
