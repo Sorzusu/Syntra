@@ -1,6 +1,7 @@
 # Syntra
 
 Syntra is a lightweight neural network framework built in C++ with support for model saving, training from CSV datasets, multiple activation functions, and early stopping.
+**It is basically zeus nn V2**
 
 ## Features
 
