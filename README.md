@@ -7,11 +7,11 @@ Syntra is a lightweight neural network framework built in C++ with support for m
 
 - Feedforward neural networks
 - Activation functions: Sigmoid, ReLU, Tanh
-- Model saving/loading to `.txt`
+- Model saving/loading to `.txt` (I could have made a proprietary format, but we have enough of those)
 - CSV-based dataset input (optional)
 - Training logs to file
 - Early stopping
-
+- It exists :D
 ## Build
 
 ```bash
